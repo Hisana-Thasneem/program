@@ -1,0 +1,122 @@
+#include<stdio.h>
+
+int a[50], position, element;
+int n;
+int choice;
+int main(void)
+{
+  while(1)
+  {
+    int i,choice;
+
+      printf("\nEnter the number of elements: ");
+
+      scanf("%d", &n);
+
+      printf("\nEnter the elements: ");
+
+      for(i=0; i<n; i++)
+
+      {
+
+        scanf("%d", &a[i]);
+
+      }
+      printf("\nArray elements are: ");
+
+      for(i=0; i<n;i++)
+        printf("%d\t ", a[i]);
+       printf("\n*****\n");
+       printf("\nMENU\n");
+
+
+      printf("\n1.INSERT\n2.DELETE\n3.SEARCH\n4.EXIT");
+
+      printf("\nEnter your choice: ");
+
+      scanf("%d", &choice);
+
+     
+      switch(choice)
+      {
+        case 1: 
+           {
+             int i;
+
+           printf("\nEnter a position where element to be inserted:    ");
+
+           scanf("%d", &position);
+
+
+            printf("\nEnter the value to be inserted:   ");
+
+            scanf("%d", &element);
+
+            for(i=n-1; i>=position ; i--)
+
+            {
+
+                        a[i+1] = a[i];
+
+            }
+
+            a[position] = element;
+
+            n = n+1;
+            
+            printf("Array after insertion is:\n");
+
+            for (i = 0; i < n; i++)
+            printf("%d\n", a[i]);
+            }break;
+
+           case 2: 
+           {
+              int i;
+
+            printf("\nEnter a position from where element to be deleted:    ");
+
+            scanf("%d", &position);
+
+            element = a[position]-1;
+            for( i = position; i< n-1; i++)
+
+            {
+
+                        a[i] = a[i+1];
+
+            }
+
+            n = n-1;
+            
+            printf("Array after deletion");
+            for (i = 0; i < n; i++)
+            printf("%d\n", a[i]);
+           }break;
+
+        case 3:
+        {
+          int i,num;
+          int x=0;
+
+           printf("Enter the element to search : ");
+           scanf("%d", &num);
+           printf("Elements are found at position: ");
+            for(i=0; i<n; i++)
+              if(a[i]==num)
+                {x++;
+                 printf("%d\n",i);	 
+                }
+              if(x==0)
+              {
+                printf("\nElement is missing\n");
+              }
+        } break;
+
+        case 4:
+        {
+          printf("Thankyou");
+          exit(0);
+        }
+      } 
+  }
